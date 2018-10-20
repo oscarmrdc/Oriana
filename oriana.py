@@ -54,7 +54,7 @@ if __name__ == '__main__':
 
         os.environ.setdefault("DJANGO_SETTINGS_MODULE", "LM_Hunting.settings")
         #application = get_wsgi_application()
-        call_command('runserver', interactive=False)
+        call_command('runserver', '0.0.0.0:8000', interactive=False)
 
     elif args.action[0] == "createdb":
 
