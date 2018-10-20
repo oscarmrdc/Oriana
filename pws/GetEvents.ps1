@@ -116,7 +116,8 @@ $EventsAll+=$WmiEvents2
 $EventsAll+=$FileShareEvents
 
 $hostname=$env:computername
-$path="\\path\\events"
+#$path="\\path\\events"
+$path="C:\Users\administrator2\Desktop\"
 $filename=$hostname+".csv"
 $final=Join-Path $path $filename
 
