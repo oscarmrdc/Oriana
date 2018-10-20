@@ -1,11 +1,15 @@
-$AuthEvents = Get-WinEvent -FilterHashtable @{Logname='Security';Id=4624}
-$FailedAuthEvents = Get-WinEvent -FilterHashtable @{Logname='Security';Id=4625}
-$LocalAuthEvents = Get-WinEvent -FilterHashtable @{Logname='Security';Id=4776}
-$SpecialLogonEvents = Get-WinEvent -FilterHashtable @{Logname='Security';Id=4672}
-$FileShareEvents = Get-WinEvent -FilterHashtable @{Logname='Security';Id=5140}
+
+#For WEF, change Security with ForwardedEvents
+$AuthEvents = Get-WinEvent -FilterHashtable @{Logname='ForwardedEvents';Id=4624}
+$FailedAuthEvents = Get-WinEvent -FilterHashtable @{Logname='ForwardedEvents';Id=4625}
+$LocalAuthEvents = Get-WinEvent -FilterHashtable @{Logname='ForwardedEvents';Id=4776}
+$SpecialLogonEvents = Get-WinEvent -FilterHashtable @{Logname='ForwardedEvents';Id=4672}
+$FileShareEvents = Get-WinEvent -FilterHashtable @{Logname='ForwardedEvents';Id=5140}
 
 $ServiceEvents = Get-WinEvent -FilterHashtable @{Logname='System';Id=7045}
-$SchTaskEvents = Get-WinEvent -FilterHashtable @{Logname='Security';Id=4698}
+$SchTaskEvents = Get-WinEvent -FilterHashtable @{Logname='ForwardedEvents';Id=4698}
+##
+
 
 #To be able to read the log need to stop it
 wevtutil set-log "Microsoft-Windows-WMI-Activity/Trace" /enabled:false
